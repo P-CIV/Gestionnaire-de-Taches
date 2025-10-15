@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de Tâches</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/images/logo.png">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1><i class="fas fa-tasks"></i> Gestion des Tâches</h1>
+           <form id="task-form" name="task-form" onsubmit="return false;">
+    <textarea id="desc" name="description" placeholder="Description" autocomplete="off"></textarea>
+    <input type="text" id="title" name="title" placeholder="Titre de la tâche" required autocomplete="off">
+    <input type="email" id="email" name="email" placeholder="Adresse email" required autocomplete="email">
+    <input type="date" id="deadline" name="deadline" required autocomplete="off">
+    <input type="time" id="reminder-time" name="reminder-time" required autocomplete="off">
+    <select id="status" name="status" autocomplete="off">
+        <option value="À faire">À faire</option>
+        <option value="En cours">En cours</option>
+        <option value="Terminée">Terminée</option>
+    </select>
+    <button type="submit" name="submit-task">Ajouter la tâche</button>
+    <input type="hidden" id="edit-index" name="edit-index" value="-1">
+</form>
+
+        </div>
+        <div class="right">
+            <h2>Liste des Tâches</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Date limite</th>
+                        <th>Statut</th>
+                        <th>Modifier</th>
+                        <th>Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody id="task-list"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="toast" id="notification"></div>
+    
+    <!-- Le modale pour confirmer la suppression -->
+    
+    <div id="fenetre-suppression" class="arriere-plan-modale" aria-hidden="true">
+        <div class="contenu-modale" role="dialog" aria-modal="true" aria-labelledby="titre-suppression">
+            <h3 id="titre-suppression">Confirmer la suppression</h3>
+            <p>Es-tu sûr(e) de vouloir supprimer cette tâche ?</p>
+            <div class="boutons-modale">
+                <button id="annuler-suppression" name="annuler-suppression" type="button">Annuler</button>
+                <button id="confirmer-suppression" name="confirmer-suppression" type="button">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="modal.js"></script>
+</body>
+</html>
