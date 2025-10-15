@@ -1,5 +1,5 @@
 // Configuration de l'API
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://gestionnaire-de-taches-e0le.onrender.com';
 
 // Sélection des éléments du DOM
 const taskForm = document.getElementById('task-form');
